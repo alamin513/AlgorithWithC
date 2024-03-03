@@ -12,7 +12,7 @@ int main()
         mid=(l+r)/2;
         if(A[mid]==data)
         {
-           printf("The searching data is %d\n",mid);
+           printf("The searching data is %d index\n",mid);
            return 0;
         }
         else if(A[mid]<data)
