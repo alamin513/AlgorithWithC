@@ -1,29 +1,35 @@
 #include<stdio.h>
-int main()
-{
-    int A[]={5,7,9,12,15,20,24,27,33,40,50,65,72};
-    int data=33;
-    int l,r,mid;
-    l=0;
-    r=12;
-
-    while(l<=r)
-    {
-        mid=(l+r)/2;
-        if(A[mid]==data)
-        {
-           printf("The searching data is %d index\n",mid);
-           return 0;
+int BinarySearch(int A[],int n,int data){
+    int start=0;
+    int mid;
+    int end=n-1;
+    while(start<=end){
+        mid=(start+end)/2;
+        if(A[mid]==data){
+            return mid;
         }
-        else if(A[mid]<data)
-        {
-            l=mid+1;
+        else if(A[mid]<data){
+            start=mid+1;
         }
-        else
-        {
-            r=mid-1;
+        else{
+            end=mid-1;
         }
     }
-    printf("Data is not found");
+    return -1;
+
+}
+int main(){
+    int A[]={ 3, 4, 1, 7, 5, 8, 11, 42, 3, 13 };
+    int data,n=sizeof(A)/sizeof(A[0]);
+    printf("Enter the searching element: ");
+    scanf("%d",&data);
+    int index=BinarySearch(A,n,data);
+    if(index>-1){
+        printf("Element found at %d index",index);
+    }
+    else{
+        printf("Element not found");
+    }
     return 0;
+
 }
