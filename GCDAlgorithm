@@ -1,0 +1,20 @@
+#include<stdio.h>
+int GCD(int num1,int num2){
+    if(num2==0){
+        return num1;
+    }
+    else{
+       return GCD(num2,num1%num2);
+    }
+}
+int main(){
+    int A,B;
+    printf("Enter the first number: ");
+    scanf("%d",&A);
+    printf("Enter the second number: ");
+    scanf("%d",&B);
+    int value=GCD(A,B);
+    printf("GCD:%d",value);
+    return 0;
+}
+
